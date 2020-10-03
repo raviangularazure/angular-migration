@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+      "target": "ES5",
+      "sourceMap": true,
+      "module": "CommonJS",
+      "moduleResolution": "Node",
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "removeComments": false,
+      "lib": ["es2017", "dom"]
+    },
+    "compileOnSave": true,
+    "exclude": [
+      "node_modules",
+      "aot/"
+    ],
+    "angularCompilerOptions" : { // only used when running AOT manually and not via webpack
+        "genDir": "aot/",
+        "skipMetadataEmit": true
+    }
+  }

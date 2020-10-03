@@ -1,0 +1,44 @@
+Add Angular2+ and migration packages in pakcage.json and run npm i - This is needed to start developing in Angular 2+
+
+Also a bunch of loaders were added to dev dependencies in package.json to support the web pack build.
+
+Create a new webpack.dev.js file - Simple easy to understand configurations to setup a webpack dev build 
+(that works for both Angular 1 and Angular 2 files in dev environment) 
+- All files added in "config" folder were done as part of this step
+
+The old index.html inside 'public' folder (will no more be used post this step) 
+- The scripts were copied and moved into a new 'index.ts' file as imports
+This index.ts file will be set as the entry point in webpack.dev.js
+
+This is all we need for webpack.dev.js file in ICC as well.
+
+awesome-typescript-loader - compiles typescript into javascript
+angular2-template-loader - inlines all .html and styles into components
+
+Understanding the above steps for Phase 1 of fixing Cache issues
+
+Including Angular 2+ in the application:
+
+Add "app" or "app-angular" folder where all Angular 2+ files will go (only main.ts is the only Angular 2+ file that will be outside this folder)
+
+main.ts file - Will contain bootstrap logic (first bootstrap Angular 2 and inside then() callback, bootstrap Angular 1)
+
+Then add Angular 2 to webpack build (add main.ts to entry point) along with vendor (all angular2 modules) and polyfills (all shims required for browser)
+Adding separate bundles for vendor and polyfills will help in client browsers caching these rarely changing content.
+=============================================================================
+Phase 2 - Webpack production build (AOT Build)
+
+There will be two webpack production config files - one to build Angular 2 using ngtools/webpack and another to build Angular 1
+using angular2-template-loader(similar to webpak.dev.js)
+
+tsconfig.aot.json file was created for aot build
+
+main-aot.ts
+vendor-aot.ts files were created separately for this
+
+A new webpack.prod.js file was created for Angular 2 code build
+A separate webpack.ng1.prod.js file was created for Angular 1 prod build
+
+Package.json was modified to add new build scripts for production 
+
+===============================================================================
