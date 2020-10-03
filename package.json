@@ -8,8 +8,8 @@
     "start": "npm run clean-dev && webpack --config config/webpack.dev.js --watch --profile --progress",
     "clean-dev": "rimraf dist/dev/*",
     "build": "npm run clean-aot && webpack --config config/webpack.ng1.prod.js --profile --progress --bail && webpack --config config/webpack.prod.js --profile --progress --bail",
-    "clean-aot": "rimraf dist/aot/*",
-    "ngc": "ngc -p tsconfig.aot.json", 
+    "clean-aot": "rimraf dist/dev/* && rimraf dist/aot/*",
+    "ngc": "ngc -p tsconfig.aot.json",
     "dev": "nodemon ./server/server.js -w ./server",
     "test": "karma start",
     "tsc": "tsc -p . -w"
