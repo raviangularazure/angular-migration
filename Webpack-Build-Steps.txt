@@ -42,3 +42,8 @@ A separate webpack.ng1.prod.js file was created for Angular 1 prod build
 Package.json was modified to add new build scripts for production 
 
 ===============================================================================
+expressconfig.json - Change the path in the dist/aot or dist/dev to run prod or dev builds
+
+npm run dev (This starts the express server in port 8801)
+
+username on login - joe@joe.com
